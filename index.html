@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <script>
+          // Build In function
+          function FirstReverse(str){
+               return str.split('').reverse().join('');
+          }
+          console.log(FirstReverse("Testing"));
+          console.log(FirstReverse("Testing Items"));
+          // witout build in function
+          function FirstReverse1(str){
+               let reversed = '';
+               for(let i = str.length - 1; i>= 0; i--){
+                    reversed +=str[i];
+               }
+               return reversed;
+          }
+
+          console.log(FirstReverse1("testign 123"))
+          // Iterative
+          function FirstFactorial(num){
+               let result = 1;
+               for(let i = 2; i<= num; i++){
+                    result *=i
+               }
+               return result; 
+          }
+          console.log(FirstFactorial(4));
+          console.log(FirstFactorial(8));
+          // Recursive
+
+          function FirstFactorial1(num){
+               if(num < 1){
+                    return 1;
+               }
+               return num*FirstFactorial1(num-1);
+          }
+
+          console.log(FirstFactorial1(8));
+          
+          // Letter Changes
+          function LetterChanges(str) {
+               let result = "";
+
+               for (let char of str) {
+               if (/[a-zA-Z]/.test(char)) {
+                    let next;
+
+                    if (char === "z") {
+                    next = "a";
+                    } else if (char === "Z") {
+                    next = "A";
+                    } else {
+                    next = String.fromCharCode(char.charCodeAt(0) + 1);
+                    }
+
+                    if ("aeiouAEIOU".includes(next)) {
+                    next = next.toUpperCase();
+                    }
+
+                    result += next;
+               } else {
+                    result += char;
+               }
+               }
+
+               return result;
+          }
+
+               // Tests
+          console.log(LetterChanges("hello*3"));    // Ifmmp*3
+          console.log(LetterChanges("fun times!")); // gvO Ujnft!
+     </script>
+</head>
+<body>
+     
+</body>
+</html>
