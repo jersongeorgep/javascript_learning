@@ -5,16 +5,13 @@ import { MatchCard } from '../components/MatchCard'
 import { colors } from '../lib/theme'
 import { useColorScheme } from 'react-native'
 import { useState } from 'react'
-import type { NativeStackNavigationProp } from '@react-navigation/native-stack'
-import type { RootStackParamList } from '../../App'
-
 const FILTERS = ['all', 'group', 'r32', 'r16', 'qf', 'sf', 'third', 'final'] as const
 const FILTER_LABELS: Record<string, string> = {
   all: 'All', group: 'Group', r32: 'R32', r16: 'R16', qf: 'QF', sf: 'SF', third: '3rd', final: 'Final',
 }
 
 type Props = {
-  navigation: NativeStackNavigationProp<RootStackParamList, 'Matches'>
+  navigation: any
 }
 
 export default function MatchesScreen({ navigation }: Props) {

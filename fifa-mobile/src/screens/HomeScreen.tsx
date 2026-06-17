@@ -5,11 +5,8 @@ import { MatchCard } from '../components/MatchCard'
 import { StandingsTable } from '../components/StandingsTable'
 import { colors } from '../lib/theme'
 import { useColorScheme } from 'react-native'
-import type { NativeStackNavigationProp } from '@react-navigation/native-stack'
-import type { RootStackParamList } from '../../App'
-
 type Props = {
-  navigation: NativeStackNavigationProp<RootStackParamList, 'Home'>
+  navigation: any
 }
 
 export default function HomeScreen({ navigation }: Props) {
@@ -68,7 +65,7 @@ export default function HomeScreen({ navigation }: Props) {
       <View style={styles.section}>
         <View style={styles.sectionHeader}>
           <Text style={[styles.sectionTitle, { color: c.foreground }]}>Upcoming Matches</Text>
-          <TouchableOpacity onPress={() => navigation.navigate('Matches')}>
+          <TouchableOpacity onPress={() => navigation.navigate('MatchesTab')}>
             <Text style={[styles.viewAll, { color: c.primary }]}>View All</Text>
           </TouchableOpacity>
         </View>
@@ -84,7 +81,7 @@ export default function HomeScreen({ navigation }: Props) {
       <View style={styles.section}>
         <View style={styles.sectionHeader}>
           <Text style={[styles.sectionTitle, { color: c.foreground }]}>Group Standings</Text>
-          <TouchableOpacity onPress={() => navigation.navigate('Standings')}>
+          <TouchableOpacity onPress={() => navigation.navigate('StandingsTab')}>
             <Text style={[styles.viewAll, { color: c.primary }]}>View All</Text>
           </TouchableOpacity>
         </View>

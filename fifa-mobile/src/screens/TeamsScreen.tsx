@@ -5,11 +5,8 @@ import { FlagIcon } from '../components/FlagIcon'
 import { colors } from '../lib/theme'
 import { useColorScheme } from 'react-native'
 import { useState } from 'react'
-import type { NativeStackNavigationProp } from '@react-navigation/native-stack'
-import type { RootStackParamList } from '../../App'
-
 type Props = {
-  navigation: NativeStackNavigationProp<RootStackParamList, 'Teams'>
+  navigation: any
 }
 
 export default function TeamsScreen({ navigation }: Props) {

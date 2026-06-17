@@ -14,6 +14,7 @@ import TeamDetailScreen from './src/screens/TeamDetailScreen'
 import BracketScreen from './src/screens/BracketScreen'
 import { Ionicons } from '@expo/vector-icons'
 import { colors } from './src/lib/theme'
+import { useMatchNotifications } from './src/lib/useMatchNotifications'
 
 export type RootStackParamList = {
   Home: undefined
@@ -103,14 +104,14 @@ function BracketStackScreen() {
   )
 }
 
-export default function App() {
+function AppContent() {
   const scheme = getScheme(useColorScheme())
   const c = scheme === 'dark' ? colors.dark : colors.light
+  useMatchNotifications()
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <NavigationContainer>
-        <StatusBar barStyle={scheme === 'dark' ? 'light-content' : 'dark-content'} />
+    <NavigationContainer>
+      <StatusBar barStyle={scheme === 'dark' ? 'light-content' : 'dark-content'} />
         <Tab.Navigator
           screenOptions={{
             headerShown: false,
@@ -147,6 +148,13 @@ export default function App() {
           />
         </Tab.Navigator>
       </NavigationContainer>
+    )
+  }
+
+export default function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <AppContent />
     </QueryClientProvider>
   )
 }
